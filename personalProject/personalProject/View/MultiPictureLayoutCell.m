@@ -60,7 +60,8 @@
 + (CGFloat)heightAtRow:(NSInteger)row withDataSourceArray:(NSArray *)dataSourceArray withWidthOfTableView:(CGFloat)tableViewWidth
 {
     NSArray *pictures = dataSourceArray[row];
-    CGFloat height = [MultiPictureLayoutView heightFromImageNumber:pictures.count withWidth:tableViewWidth];
+//    CGFloat height = [MultiPictureLayoutView heightFromImageNumber:pictures.count withWidth:tableViewWidth];
+    CGFloat height = [MultiPictureLayoutView heightFromImageArray:pictures withWidth:tableViewWidth];
     
     return height;
 }
@@ -71,7 +72,8 @@
     NSMutableArray *imageSizeArray = [NSMutableArray array];
 
     for (NSArray *imageArray in dataSourceArray) {
-        CGFloat height = [MultiPictureLayoutView heightFromImageNumber:imageArray.count withWidth:tableViewWidth];
+//        CGFloat height = [MultiPictureLayoutView heightFromImageNumber:imageArray.count withWidth:tableViewWidth];
+        CGFloat height = [MultiPictureLayoutView heightFromImageArray:imageArray withWidth:tableViewWidth];
         [imageSizeArray addObject:[NSNumber numberWithFloat:height]];
     }
 

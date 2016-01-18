@@ -53,8 +53,8 @@
     ImageModel *imageModel = [[ImageModel alloc] init];
     
     imageModel.imageUrl = @"http://pic9.nipic.com/20100820/5462876_111802062730_2.jpg";
-    imageModel.height = 280;
-    imageModel.width = 250;
+    imageModel.height = 3;
+    imageModel.width = 2;
     [array addObject:imageModel];
     
     ImageModel *imageModel1 = [[ImageModel alloc] init];
@@ -109,8 +109,8 @@
     for (ImageModel *imageBaseModel in array) {
         NSMutableDictionary *imageDictionary = [[NSMutableDictionary alloc]init];
         [imageDictionary setValue:imageBaseModel.imageUrl forKey:IMAGE_URL];
-        [imageDictionary setValue:[NSString stringWithFormat:@"%lf", imageBaseModel.height] forKey:@"height"];
-        [imageDictionary setValue:[NSString stringWithFormat:@"%lf", imageBaseModel.width] forKey:@"width"];
+        [imageDictionary setValue:[NSString stringWithFormat:@"%lf", imageBaseModel.height] forKey:@"image_height"];
+        [imageDictionary setValue:[NSString stringWithFormat:@"%lf", imageBaseModel.width] forKey:@"image_width"];
         [dictArray addObject:imageDictionary];
     }
     
@@ -122,7 +122,7 @@
             index = 1;
         }
         
-        NSArray *pictures = [dictArray subarrayWithRange:NSMakeRange(0, 9)];
+        NSArray *pictures = [dictArray subarrayWithRange:NSMakeRange(0, index)];
         [_dataSourceFileArray addObject:pictures];
     }
     

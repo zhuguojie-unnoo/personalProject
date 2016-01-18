@@ -42,7 +42,7 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-
+        
         [self addSubview:imageView];
         [_imageViewArray addObject:imageView];
     }
@@ -91,7 +91,7 @@
     _isInited = YES;
     //  以下代码为计算 imageView 的布局
     NSInteger count = _pictures.count;
-    NSArray *imagesFrameArray = [[self class] layoutSubviewsCustoms:count withItemWidth:width];
+    NSArray *imagesFrameArray = [self layoutSubviewsCustoms:count withItemWidth:width];
     
     for (NSInteger index = 0; index < count; index++) {
         NSDictionary *imageDict = _pictures[index];
@@ -112,7 +112,7 @@
 
 #pragma mark - 计算 frame，返回装有 frame 的数组
 
-+ (NSArray *)layoutSubviewsCustoms:(NSInteger )count withItemWidth:(CGFloat)width
+- (NSArray *)layoutSubviewsCustoms:(NSInteger )count withItemWidth:(CGFloat)width
 {
     if (count == 0) {
         return nil;
@@ -123,57 +123,57 @@
     
     switch (count) {
         case 1:{
-            originY = [MultiPictureLayoutView layoutOneStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutOneSpecialStyleView:array withOriginY:0 withItemWidth:width];
             break;
         }
             
         case 2: {
-            originY = [MultiPictureLayoutView layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
             break;
         }
             
         case 3: {
-            originY = [MultiPictureLayoutView layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
             break;
         }
             
         case 4: {
-            originY = [MultiPictureLayoutView layoutOneStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutOneStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
             
         }
             
         case 5: {
-            originY = [MultiPictureLayoutView layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
         }
             
         case 6: {
-            originY = [MultiPictureLayoutView layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array  withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array  withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
         }
             
         case 7: {
-            originY = [MultiPictureLayoutView layoutOneStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY: originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutOneStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY: originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
         }
             
         case 8: {
-            originY = [MultiPictureLayoutView layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY: originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutTwoStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY: originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
         }
             
         case 9: {
-            originY = [MultiPictureLayoutView layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
-            originY = [MultiPictureLayoutView layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutNoEqualStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
+            originY = [self layoutThreeEqualStyleView:array withOriginY:originY + SPLITLINE_WIDTH withItemWidth:width];
             break;
         }
             
@@ -187,7 +187,20 @@
     return imageFrameArray;
 }
 
-+ (CGFloat)layoutOneStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+- (CGFloat)layoutOneSpecialStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+{
+    NSNumber *imageWidth = [_pictures[0] objectForKey:@"image_width"];
+    NSNumber *imageHeight = [_pictures[0] objectForKey:@"image_height"];
+    
+    CGFloat scaleHeight = [MultiPictureLayoutView calculateImageHeightFromBaseWidth:width withImageWidth:imageWidth.floatValue withImageHeight:imageHeight.floatValue];
+    
+    CGRect frame = CGRectMake(0, originY, width, scaleHeight);
+    [array addObject:[NSValue valueWithCGRect:frame]];
+    
+    return originY + scaleHeight;
+}
+
+- (CGFloat)layoutOneStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
 {
     CGFloat baseWidth = width;
     CGFloat threeWidth = (baseWidth - SPLITLINE_WIDTH * 2) / 3.0;
@@ -199,7 +212,7 @@
     return originY + threeBigWidth;
 }
 
-+ (CGFloat)layoutTwoStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+- (CGFloat)layoutTwoStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
 {
     CGFloat baseWidth = width;
     CGFloat twoWidth = (baseWidth - SPLITLINE_WIDTH) * 0.5;
@@ -212,7 +225,7 @@
     return originY + twoWidth;
 }
 
-+ (CGFloat)layoutThreeEqualStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+- (CGFloat)layoutThreeEqualStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
 {
     CGFloat baseWidth = width;
     CGFloat threeWidth = (baseWidth - SPLITLINE_WIDTH*2) / 3.0;
@@ -228,7 +241,7 @@
     return originY + threeWidth;
 }
 
-+ (CGFloat)layoutNoEqualStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+- (CGFloat)layoutNoEqualStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
 {
     CGFloat baseWidth = width;
     CGFloat threeWidth = (baseWidth - SPLITLINE_WIDTH * 2) / 3.0;
@@ -246,7 +259,7 @@
 }
 
 
-+ (CGFloat)heightFromImageNumber:(NSInteger)number withWidth:(CGFloat)width
++ (CGFloat)heightFromImageArray:(NSArray *)pictures withWidth:(CGFloat)width
 {
     CGFloat baseWidth;
     if (width != 0) {
@@ -256,6 +269,7 @@
         return 0;
     }
     
+    NSInteger number = pictures.count;
     CGFloat twoWidth = (baseWidth - SPLITLINE_WIDTH) * 0.5;
     CGFloat threeWidth = (baseWidth - SPLITLINE_WIDTH * 2) / 3.0;
     CGFloat threeBigWidth = baseWidth - threeWidth - SPLITLINE_WIDTH;
@@ -263,7 +277,10 @@
     CGFloat height;
     switch (number) {
         case 1: {
-            height = threeBigWidth;
+            //  取出数组中图片的宽高度
+            NSNumber *imageWidth = [pictures[0] objectForKey:@"image_width"];
+            NSNumber *imageHeight = [pictures[0] objectForKey:@"image_height"];
+            height = [MultiPictureLayoutView calculateImageHeightFromBaseWidth:width withImageWidth:imageWidth.floatValue withImageHeight:imageHeight.floatValue];
             break;
         }
             
@@ -313,6 +330,26 @@
     }
     
     return height;
+}
+
++ (CGFloat)calculateImageHeightFromBaseWidth:(CGFloat)baseWidth withImageWidth:(CGFloat)imageWidth withImageHeight:(CGFloat)imageHeight
+{
+    if (imageWidth == 0 || imageHeight == 0) {
+        return 0;
+    }
+    
+    CGFloat scale = imageHeight / imageWidth;
+    
+    if (scale < 0.5) {
+        scale = 0.5;
+    }
+    else if (scale > 1.5) {
+        scale = 1.5;
+    }
+    
+    CGFloat scaleHeight = baseWidth * scale;
+    
+    return scaleHeight;
 }
 
 @end

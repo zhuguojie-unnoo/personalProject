@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSArray *pictures;
 
-+ (CGFloat)heightFromImageNumber:(NSInteger)number withWidth:(CGFloat)width;
++ (CGFloat)heightFromImageArray:(NSArray *)pictures withWidth:(CGFloat)width;
 
 - (void)free;
 
