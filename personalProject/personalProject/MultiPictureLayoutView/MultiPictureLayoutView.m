@@ -9,7 +9,6 @@
 #import "MultiPictureLayoutView.h"
 #import "UIImageView+WebCache.h"
 
-
 #define SPLITLINE_WIDTH   1
 #define IMAGE_URL   @"imageUrl"
 
