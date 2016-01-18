@@ -33,6 +33,8 @@
 		944130F61C4C799F002768EA /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130DF1C4C799F002768EA /* ImageModel.m */; };
 		944130F71C4C799F002768EA /* MultiPictureLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130E21C4C799F002768EA /* MultiPictureLayoutCell.m */; };
 		944130FF1C4C82C0002768EA /* MultiPictureLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130FE1C4C82C0002768EA /* MultiPictureLayoutView.m */; };
+		944131021C4CF0EA002768EA /* width.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 944131001C4CF0EA002768EA /* width.jpg */; };
+		944131031C4CF0EA002768EA /* height.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 944131011C4CF0EA002768EA /* height.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		944130E21C4C799F002768EA /* MultiPictureLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPictureLayoutCell.m; sourceTree = "<group>"; };
 		944130FD1C4C82C0002768EA /* MultiPictureLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPictureLayoutView.h; sourceTree = "<group>"; };
 		944130FE1C4C82C0002768EA /* MultiPictureLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPictureLayoutView.m; sourceTree = "<group>"; };
+		944131001C4CF0EA002768EA /* width.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = width.jpg; sourceTree = "<group>"; };
+		944131011C4CF0EA002768EA /* height.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = height.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 		944130841C4C785C002768EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				944131001C4CF0EA002768EA /* width.jpg */,
+				944131011C4CF0EA002768EA /* height.jpg */,
 				944130901C4C785C002768EA /* Assets.xcassets */,
 				944130921C4C785C002768EA /* LaunchScreen.storyboard */,
 				944130951C4C785C002768EA /* Info.plist */,
@@ -386,6 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				944130941C4C785C002768EA /* LaunchScreen.storyboard in Resources */,
+				944131021C4CF0EA002768EA /* width.jpg in Resources */,
+				944131031C4CF0EA002768EA /* height.jpg in Resources */,
 				944130911C4C785C002768EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

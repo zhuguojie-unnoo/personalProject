@@ -39,7 +39,7 @@
 {
     [super layoutSubviews];
     //  设置多图控件的 frame
-    _multiPictureLayoutView.frame = self.bounds;
+    _multiPictureLayoutView.frame = self.contentView.bounds;
     _multiPictureLayoutView.pictures = _pictures;
 }
 

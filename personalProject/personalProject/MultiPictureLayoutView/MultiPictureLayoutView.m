@@ -11,12 +11,16 @@
 
 #define SPLITLINE_WIDTH   1
 #define IMAGE_URL   @"imageUrl"
+#define IMAGE_WIDTH   @"image_width"
+#define IMAGE_HEIGHT   @"image_height"
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
 
 @interface MultiPictureLayoutView ()
 {
     BOOL _isInited;
     NSMutableArray *_imageViewArray;
+    UIButton *_signButton;
 }
 @end
 
@@ -29,6 +33,7 @@
     if (self != nil) {
         _imageViewArray = [NSMutableArray array];
         [self creatImageViews];
+        [self createSignButton];
         _isInited = YES;
     }
     
@@ -69,11 +74,21 @@
     _isInited = NO;
     _pictures = nil;
     
+    //    NSInteger count = _pictures.count;
+    //    for (NSInteger index = 0; index < count; index++) {
+    //        UIImageView *imageView = _imageViewArray[index];
+    //        imageView.image = nil;
+    //        [imageView sd_cancelCurrentImageLoad];
+    //        [imageView removeFromSuperview];
+    //    }
+    
     for (UIImageView *imageView in _imageViewArray) {
         imageView.image = nil;
         [imageView sd_cancelCurrentImageLoad];
         [imageView removeFromSuperview];
     }
+    
+        [_signButton removeFromSuperview];
 }
 
 - (void)layoutSubviews
@@ -103,6 +118,39 @@
         }
         
         [self addSubview:imageView];
+    }
+    
+    NSString *title;
+    if (count == 1) {
+        //  宽、长
+        NSDictionary *imageDict = _pictures[0];
+        NSNumber *imageWidth = [imageDict objectForKey:IMAGE_WIDTH];
+        NSNumber *imageHeight = [imageDict objectForKey:IMAGE_HEIGHT];
+        
+        if (imageWidth == 0 || imageHeight == 0) {
+            return ;
+        }
+        
+        CGFloat scale = imageHeight.floatValue / imageWidth.floatValue;
+        
+        if (scale < 0.5) {
+            scale = 0.5;
+            title = @"宽图";
+        }
+        else if (scale > 1.5) {
+            scale = 1.5;
+            title = @"长图";
+        }
+    }
+    else if (count > 1){
+        // 多图
+        title = @"多图";
+    }
+    
+    if (title.length != 0) {
+        _signButton.frame = CGRectMake(CGRectGetWidth(self.frame) - 64, CGRectGetHeight(self.frame) - 23, 64, 23);
+        [_signButton setTitle:title forState:UIControlStateNormal];
+        [self addSubview:_signButton];
     }
 }
 
@@ -347,6 +395,17 @@
     CGFloat scaleHeight = baseWidth * scale;
     
     return scaleHeight;
+}
+
+- (void)createSignButton
+{
+    _signButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_signButton setTitleColor:RGBA(0xFF, 0xFF, 0xFF, 1.0) forState:UIControlStateNormal];
+    [_signButton setTitleColor:RGBA(0xFF, 0xFF, 0xFF, 0.5) forState:UIControlStateHighlighted];
+    _signButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    _signButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [_signButton setBackgroundImage:[[UIImage imageNamed:@"image_scale_type_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)] forState:UIControlStateNormal];
+    _signButton.userInteractionEnabled = NO;
 }
 
 @end
