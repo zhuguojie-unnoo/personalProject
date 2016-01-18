@@ -71,24 +71,17 @@
 
 - (void)free
 {
-    _isInited = NO;
-    _pictures = nil;
-    
-    //    NSInteger count = _pictures.count;
-    //    for (NSInteger index = 0; index < count; index++) {
-    //        UIImageView *imageView = _imageViewArray[index];
-    //        imageView.image = nil;
-    //        [imageView sd_cancelCurrentImageLoad];
-    //        [imageView removeFromSuperview];
-    //    }
-    
-    for (UIImageView *imageView in _imageViewArray) {
+    NSInteger count = _pictures.count;
+    for (NSInteger index = 0; index < count; index++) {
+        UIImageView *imageView = _imageViewArray[index];
         imageView.image = nil;
         [imageView sd_cancelCurrentImageLoad];
         [imageView removeFromSuperview];
     }
     
-        [_signButton removeFromSuperview];
+    _pictures = nil;
+    _isInited = NO;
+    [_signButton removeFromSuperview];
 }
 
 - (void)layoutSubviews
