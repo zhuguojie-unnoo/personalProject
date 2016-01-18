@@ -101,6 +101,7 @@
         imageView.frame = [imagesFrameArray[index] CGRectValue];
         imageView.hidden = NO;
         
+        //  在使用过程中，取图片地址的方式按照实际需求做改动
         NSString *imageUrl = [imageDict objectForKey:IMAGE_URL];
         if (imageUrl.length > 0) {
             [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];

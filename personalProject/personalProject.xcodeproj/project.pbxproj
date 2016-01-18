@@ -32,7 +32,7 @@
 		944130F51C4C799F002768EA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130DC1C4C799F002768EA /* UIView+WebCacheOperation.m */; };
 		944130F61C4C799F002768EA /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130DF1C4C799F002768EA /* ImageModel.m */; };
 		944130F71C4C799F002768EA /* MultiPictureLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130E21C4C799F002768EA /* MultiPictureLayoutCell.m */; };
-		944130F81C4C799F002768EA /* MultiPictureLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130E41C4C799F002768EA /* MultiPictureLayoutView.m */; };
+		944130FF1C4C82C0002768EA /* MultiPictureLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130FE1C4C82C0002768EA /* MultiPictureLayoutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +105,8 @@
 		944130DF1C4C799F002768EA /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		944130E11C4C799F002768EA /* MultiPictureLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPictureLayoutCell.h; sourceTree = "<group>"; };
 		944130E21C4C799F002768EA /* MultiPictureLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPictureLayoutCell.m; sourceTree = "<group>"; };
-		944130E31C4C799F002768EA /* MultiPictureLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPictureLayoutView.h; sourceTree = "<group>"; };
-		944130E41C4C799F002768EA /* MultiPictureLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPictureLayoutView.m; sourceTree = "<group>"; };
+		944130FD1C4C82C0002768EA /* MultiPictureLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPictureLayoutView.h; sourceTree = "<group>"; };
+		944130FE1C4C82C0002768EA /* MultiPictureLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPictureLayoutView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +157,7 @@
 		944130831C4C785C002768EA /* personalProject */ = {
 			isa = PBXGroup;
 			children = (
+				944130FC1C4C82C0002768EA /* MultiPictureLayoutView */,
 				944130B71C4C799F002768EA /* Controller */,
 				944130BA1C4C799F002768EA /* Lib */,
 				944130DD1C4C799F002768EA /* Model */,
@@ -268,10 +269,17 @@
 			children = (
 				944130E11C4C799F002768EA /* MultiPictureLayoutCell.h */,
 				944130E21C4C799F002768EA /* MultiPictureLayoutCell.m */,
-				944130E31C4C799F002768EA /* MultiPictureLayoutView.h */,
-				944130E41C4C799F002768EA /* MultiPictureLayoutView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		944130FC1C4C82C0002768EA /* MultiPictureLayoutView */ = {
+			isa = PBXGroup;
+			children = (
+				944130FD1C4C82C0002768EA /* MultiPictureLayoutView.h */,
+				944130FE1C4C82C0002768EA /* MultiPictureLayoutView.m */,
+			);
+			path = MultiPictureLayoutView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,8 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944130FF1C4C82C0002768EA /* MultiPictureLayoutView.m in Sources */,
 				944130F31C4C799F002768EA /* UIImageView+HighlightedWebCache.m in Sources */,
-				944130F81C4C799F002768EA /* MultiPictureLayoutView.m in Sources */,
 				944130F71C4C799F002768EA /* MultiPictureLayoutCell.m in Sources */,
 				944130E71C4C799F002768EA /* NSData+ImageContentType.m in Sources */,
 				944130ED1C4C799F002768EA /* SDWebImageManager.m in Sources */,
