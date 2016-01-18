@@ -42,7 +42,6 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         
-        [self addSubview:imageView];
         [_imageViewArray addObject:imageView];
     }
 }
@@ -73,8 +72,7 @@
     for (UIImageView *imageView in _imageViewArray) {
         imageView.image = nil;
         [imageView sd_cancelCurrentImageLoad];
-        imageView.frame = CGRectZero;
-        imageView.hidden = YES;
+        [imageView removeFromSuperview];
     }
 }
 
@@ -96,15 +94,15 @@
         NSDictionary *imageDict = _pictures[index];
         UIImageView *imageView = _imageViewArray[index];
         
-        imageView.hidden = YES;
         imageView.frame = [imagesFrameArray[index] CGRectValue];
-        imageView.hidden = NO;
         
         //  在使用过程中，取图片地址的方式按照实际需求做改动
         NSString *imageUrl = [imageDict objectForKey:IMAGE_URL];
         if (imageUrl.length > 0) {
             [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
         }
+        
+        [self addSubview:imageView];
     }
 }
 
@@ -122,7 +120,7 @@
     
     switch (count) {
         case 1:{
-            originY = [self layoutOneSpecialStyleView:array withOriginY:0 withItemWidth:width];
+            originY = [self layoutOneSpecialStyleView:array withItemWidth:width];
             break;
         }
             
@@ -186,17 +184,17 @@
     return imageFrameArray;
 }
 
-- (CGFloat)layoutOneSpecialStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width
+- (CGFloat)layoutOneSpecialStyleView:(NSMutableArray *)array withItemWidth:(CGFloat)width
 {
     NSNumber *imageWidth = [_pictures[0] objectForKey:@"image_width"];
     NSNumber *imageHeight = [_pictures[0] objectForKey:@"image_height"];
     
     CGFloat scaleHeight = [MultiPictureLayoutView calculateImageHeightFromBaseWidth:width withImageWidth:imageWidth.floatValue withImageHeight:imageHeight.floatValue];
     
-    CGRect frame = CGRectMake(0, originY, width, scaleHeight);
+    CGRect frame = CGRectMake(0, 0, width, scaleHeight);
     [array addObject:[NSValue valueWithCGRect:frame]];
     
-    return originY + scaleHeight;
+    return scaleHeight;
 }
 
 - (CGFloat)layoutOneStyleView:(NSMutableArray *)array withOriginY:(CGFloat)originY withItemWidth:(CGFloat)width

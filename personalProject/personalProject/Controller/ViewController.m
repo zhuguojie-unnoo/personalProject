@@ -18,7 +18,7 @@
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *_dataSourceFileArray;    //  数据源
-    NSArray *_heightArray;                     //  cell 的 height 数组
+    NSArray *_heightArray;                   //  cell 的 height 数组
     UITableView *_tableView;
 }
 
