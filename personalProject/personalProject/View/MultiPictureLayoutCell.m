@@ -61,6 +61,7 @@
 {
     NSArray *pictures = dataSourceArray[row];
     CGFloat height = [MultiPictureLayoutView heightFromImageNumber:pictures.count withWidth:tableViewWidth];
+    
     return height;
 }
 
