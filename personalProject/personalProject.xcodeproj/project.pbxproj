@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		944130861C4C785C002768EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130851C4C785C002768EA /* main.m */; };
 		944130891C4C785C002768EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 944130881C4C785C002768EA /* AppDelegate.m */; };
-		9441308F1C4C785C002768EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9441308D1C4C785C002768EA /* Main.storyboard */; };
 		944130911C4C785C002768EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944130901C4C785C002768EA /* Assets.xcassets */; };
 		944130941C4C785C002768EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944130921C4C785C002768EA /* LaunchScreen.storyboard */; };
 		9441309F1C4C785C002768EA /* personalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9441309E1C4C785C002768EA /* personalProjectTests.m */; };
@@ -58,7 +57,6 @@
 		944130851C4C785C002768EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		944130871C4C785C002768EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		944130881C4C785C002768EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9441308E1C4C785C002768EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944130901C4C785C002768EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		944130931C4C785C002768EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		944130951C4C785C002768EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,10 +163,6 @@
 				944130E01C4C799F002768EA /* View */,
 				944130871C4C785C002768EA /* AppDelegate.h */,
 				944130881C4C785C002768EA /* AppDelegate.m */,
-				9441308D1C4C785C002768EA /* Main.storyboard */,
-				944130901C4C785C002768EA /* Assets.xcassets */,
-				944130921C4C785C002768EA /* LaunchScreen.storyboard */,
-				944130951C4C785C002768EA /* Info.plist */,
 				944130841C4C785C002768EA /* Supporting Files */,
 			);
 			path = personalProject;
@@ -177,6 +171,9 @@
 		944130841C4C785C002768EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				944130901C4C785C002768EA /* Assets.xcassets */,
+				944130921C4C785C002768EA /* LaunchScreen.storyboard */,
+				944130951C4C785C002768EA /* Info.plist */,
 				944130851C4C785C002768EA /* main.m */,
 			);
 			name = "Supporting Files";
@@ -382,7 +379,6 @@
 			files = (
 				944130941C4C785C002768EA /* LaunchScreen.storyboard in Resources */,
 				944130911C4C785C002768EA /* Assets.xcassets in Resources */,
-				9441308F1C4C785C002768EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,14 +460,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9441308D1C4C785C002768EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9441308E1C4C785C002768EA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		944130921C4C785C002768EA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -654,6 +642,7 @@
 				944130B01C4C785C002768EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944130B11C4C785C002768EA /* Build configuration list for PBXNativeTarget "personalProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -662,6 +651,7 @@
 				944130B31C4C785C002768EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944130B41C4C785C002768EA /* Build configuration list for PBXNativeTarget "personalProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -670,6 +660,7 @@
 				944130B61C4C785C002768EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

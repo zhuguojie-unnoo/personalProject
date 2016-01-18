@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F22262EE0C936DAAF883445FCC7FCA818E4EEB08",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F22262EE0C936DAAF883445FCC7FCA818E4EEB08" : 0,
+    "E4F115BBDF51F6DFF2601CE0054326D2144DAB48" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "87BBC4DF-BD4B-4A00-99D6-B2129BC75536",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F22262EE0C936DAAF883445FCC7FCA818E4EEB08" : "personalProject\/",
+    "E4F115BBDF51F6DFF2601CE0054326D2144DAB48" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "personalProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "personalProject\/personalProject.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/unnoo\/story72h_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E4F115BBDF51F6DFF2601CE0054326D2144DAB48"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhuguojie-unnoo\/personalProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F22262EE0C936DAAF883445FCC7FCA818E4EEB08"
+    }
+  ]
+}
